@@ -1,38 +1,75 @@
 from django.db import models
-from django.utils.timezone import now
 
-# Create your models here.
+US_STATES = [
+    ("AL", "Alabama"),
+    ("AK", "Alaska"),
+    ("AZ", "Arizona"),
+    ("AR", "Arkansas"),
+    ("CA", "California"),
+    ("CO", "Colorado"),
+    ("CT", "Connecticut"),
+    ("DE", "Delaware"),
+    ("FL", "Florida"),
+    ("GA", "Georgia"),
+    ("HI", "Hawaii"),
+    ("ID", "Idaho"),
+    ("IL", "Illinois"),
+    ("IN", "Indiana"),
+    ("IA", "Iowa"),
+    ("KS", "Kansas"),
+    ("KY", "Kentucky"),
+    ("LA", "Louisiana"),
+    ("ME", "Maine"),
+    ("MD", "Maryland"),
+    ("MA", "Massachusetts"),
+    ("MI", "Michigan"),
+    ("MN", "Minnesota"),
+    ("MS", "Mississippi"),
+    ("MO", "Missouri"),
+    ("MT", "Montana"),
+    ("NE", "Nebraska"),
+    ("NV", "Nevada"),
+    ("NH", "New Hampshire"),
+    ("NJ", "New Jersey"),
+    ("NM", "New Mexico"),
+    ("NY", "New York"),
+    ("NC", "North Carolina"),
+    ("ND", "North Dakota"),
+    ("OH", "Ohio"),
+    ("OK", "Oklahoma"),
+    ("OR", "Oregon"),
+    ("PA", "Pennsylvania"),
+    ("RI", "Rhode Island"),
+    ("SC", "South Carolina"),
+    ("SD", "South Dakota"),
+    ("TN", "Tennessee"),
+    ("TX", "Texas"),
+    ("UT", "Utah"),
+    ("VT", "Vermont"),
+    ("VA", "Virginia"),
+    ("WA", "Washington"),
+    ("WV", "West Virginia"),
+    ("WI", "Wisconsin"),
+    ("WY", "Wyoming"),
+]
 
-class Crud(models.Model):
-    class StateChoice(models.TextChoices):
-        Alabama = 'Alabama, AL'
-        Alaska = 'Alaska, AK'
-        Arizona = 'Arizona, AZ'
-        Arkansas = 'Arkansas, AR'
-        California = 'California, CA'
-        Colorado = 'Colorado, CO'
-        Connecticut = 'Connecticut, CT'
-        Delaware = 'Delaware, DE'
-        Tennessee = 'Tennessee, TN'
-        Texas = 'Texas, TX'
-        Utah = 'Utah, UT'
-        Vermont = 'Vermont, VT'
-        Virginia = 'Virginia, VA'
-        Washington = 'Washington, WA'
-        West_Virginia = 'West Virginia, WV'
-        Wisconsin = 'Wisconsin, WI'
-        Wyoming = 'Wyoming, WY'
 
-    title = models.CharField(max_length=50)
-    place = models.CharField(max_length=50)
-    city = models.CharField(max_length=10)
-    state = models.CharField(max_length=50, choices=StateChoice.choices, default=StateChoice.Alabama)
-    zipcode = models.CharField(max_length=10)
-    other = models.CharField(max_length=50)
-    start_date = models.CharField(max_length=25)
-    end_date = models.CharField(max_length=25)
-    category = models.CharField(max_length=25)
-    list_date = models.DateTimeField(default=now, blank=True)
+class Event(models.Model):
+    """A public event held at a venue in the United States."""
+
+    title = models.CharField(max_length=100)
+    place = models.CharField("venue", max_length=100)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=2, choices=US_STATES)
+    zipcode = models.CharField("ZIP code", max_length=10)
+    category = models.CharField(max_length=50)
+    notes = models.CharField(max_length=200, blank=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["start_date", "id"]
 
     def __str__(self):
         return self.title
