@@ -12,6 +12,8 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "django"
+        versions: [">=5"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
