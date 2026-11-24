@@ -4,6 +4,7 @@ REST API built with **Django** and **Django REST Framework**, with **JWT authent
 (SimpleJWT). It manages location records (title, place, city, US state and ZIP code) through a
 full set of CRUD endpoints, plus an example of a protected view.
 
+![CI](https://github.com/CuencaOscar/CRUD_DRF/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django_REST_Framework-092E20?logo=django&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white)
@@ -14,17 +15,17 @@ full set of CRUD endpoints, plus an example of a protected view.
 
 | Method | Path | Description |
 |---|---|---|
-| `POST` | `/api/events/create/` | Create a record |
+| `POST` | `/api/events/create/` | Create a record (`201`, or `400` with validation errors) |
 | `GET` | `/api/events/read/` | List records |
 | `POST` | `/api/events/update/<id>` | Update a record |
-| `DELETE` | `/api/events/delete/<id>` | Delete a record |
+| `DELETE` | `/api/events/delete/<id>` | Delete a record (`204`, or `404` if it does not exist) |
 | `POST` | `/api/events/token/` | Get an access/refresh JWT pair |
 | `POST` | `/api/events/token/refresh/` | Refresh the access token |
 | `GET` | `/api/events/protegida/` | Example endpoint that requires a valid token |
 
 ## Tech stack
 
-- Python · Django 4 · Django REST Framework
+- Python · Django 4.2 LTS · Django REST Framework
 - `djangorestframework-simplejwt` for authentication
 - Split settings per environment (`settings/base.py`, `dev.py`, `prod.py`)
 
@@ -39,6 +40,14 @@ export DJANGO_SECRET_KEY=change-me
 python manage.py migrate
 python manage.py runserver
 ```
+
+## Tests
+
+```bash
+python manage.py test
+```
+
+API and JWT tests run on every push with GitHub Actions.
 
 ## License
 
