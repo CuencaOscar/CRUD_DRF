@@ -40,6 +40,6 @@ python manage.py migrate
 python manage.py runserver
 ```
 
----
+## License
 
-**Oscar Cuenca** · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
+[MIT](LICENSE) © Oscar Cuenca · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
