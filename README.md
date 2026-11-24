@@ -5,7 +5,7 @@ REST API built with **Django** and **Django REST Framework**, with **JWT authent
 full set of CRUD endpoints, plus an example of a protected view.
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![Django](https://img.shields.io/badge/Django-REST_Framework-092E20?logo=django&logoColor=white)
+![Django](https://img.shields.io/badge/Django_REST_Framework-092E20?logo=django&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white)
 
 ## Endpoints
