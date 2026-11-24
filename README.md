@@ -1,8 +1,12 @@
-# CRUD_DRF
+# CRUD_DRF 🔐
 
 REST API built with **Django** and **Django REST Framework**, with **JWT authentication**
 (SimpleJWT). It manages location records (title, place, city, US state and ZIP code) through a
 full set of CRUD endpoints, plus an example of a protected view.
+
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-REST_Framework-092E20?logo=django&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white)
 
 ## Endpoints
 
@@ -33,5 +37,7 @@ export DJANGO_SECRET_KEY=change-me
 python manage.py migrate
 python manage.py runserver
 ```
+
+---
 
 **Oscar Cuenca** · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
