@@ -8,17 +8,19 @@ full set of CRUD endpoints, plus an example of a protected view.
 ![Django](https://img.shields.io/badge/Django_REST_Framework-092E20?logo=django&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white)
 
+![Browsable API listing the stored records](docs/api-read.png)
+
 ## Endpoints
 
 | Method | Path | Description |
 |---|---|---|
-| `POST` | `/create/` | Create a record |
-| `GET` | `/read/` | List records |
-| `POST` | `/update/<id>` | Update a record |
-| `DELETE` | `/delete/<id>` | Delete a record |
-| `POST` | `/token/` | Get an access/refresh JWT pair |
-| `POST` | `/token/refresh/` | Refresh the access token |
-| `GET` | `/protegida/` | Example endpoint that requires a valid token |
+| `POST` | `/api/events/create/` | Create a record |
+| `GET` | `/api/events/read/` | List records |
+| `POST` | `/api/events/update/<id>` | Update a record |
+| `DELETE` | `/api/events/delete/<id>` | Delete a record |
+| `POST` | `/api/events/token/` | Get an access/refresh JWT pair |
+| `POST` | `/api/events/token/refresh/` | Refresh the access token |
+| `GET` | `/api/events/protegida/` | Example endpoint that requires a valid token |
 
 ## Tech stack
 
